@@ -1,0 +1,82 @@
+﻿<Window x:Class="ResearchOfFunction.Multidimensional"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Multidimensional" Height="600" Width="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column= "0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" Height="200" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment = "Left" Margin = "10" Grid.Row= "0" Grid.Column = "0" Text = "Введите левую границу:"></TextBlock>
+                <TextBlock HorizontalAlignment = "Left" Margin = "10" Grid.Row= "1" Grid.Column = "0" Text = "Введите правую границу:"></TextBlock>
+                <TextBlock HorizontalAlignment = "Left" Margin = "10" Grid.Row= "2" Grid.Column = "0" Text = "Введите шаг оцифровки:"></TextBlock>
+                <TextBlock HorizontalAlignment = "Left" Margin = "10" Grid.Row= "3" Grid.Column = "0" Text = "Введите точность:"></TextBlock>
+                <TextBlock HorizontalAlignment = "Left" Margin = "10" Grid.Row= "4" Grid.Column = "0" Text = "Введите b:"></TextBlock>
+                <TextBox LostFocus="vj_LostFocus" Name = "vj" Margin = "10" Grid.Row="0" Grid.Column = "1"></TextBox>
+                <TextBox LostFocus="vy_LostFocus" Name = "vy" Margin = "10" Grid.Row="1" Grid.Column = "1"></TextBox>
+                <TextBox LostFocus="og_LostFocus" Name = "og" Margin = "10" Grid.Row="2" Grid.Column = "1"></TextBox>
+                <TextBox LostFocus="te_LostFocus" Name = "te" Margin = "10" Grid.Row="3" Grid.Column = "1"></TextBox>
+                <TextBox LostFocus="vu_LostFocus" Name = "vu" Margin = "10" Grid.Row="4" Grid.Column = "1"></TextBox>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0" Height="200" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>                    
+                </Grid.RowDefinitions>
+            <Button Grid.Row = "0" VerticalAlignment = "Center" HorizontalAlignment = "Center" MaxHeight = "40" MaxWidth = "350" Click = "Button_Click">Построить график</Button>
+                <StackPanel HorizontalAlignment = "Center" Orientation = "Vertical" Grid.Row = "1">
+                    <RadioButton Click="RadioButton_Click1" IsChecked = "True">Max</RadioButton>
+                    <RadioButton Click="RadioButton_Click2">Min</RadioButton>
+                </StackPanel>
+                <Grid Grid.Row = "2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment = "Left"  Grid.Column = "0" Text = "Номер:"></TextBlock>
+                    <TextBlock HorizontalAlignment = "Left"  Grid.Column = "1" Text = "Ksi:"></TextBlock>
+                    <TextBlock HorizontalAlignment = "Left"  Grid.Column = "2" Text = "dEc:"></TextBlock>
+                    <TextBlock Name ="T1" HorizontalAlignment = "Left"  Grid.Row = "1" Grid.Column = "0"></TextBlock>
+                    <TextBlock Name ="T2" HorizontalAlignment = "Left"  Grid.Row = "1" Grid.Column = "1"></TextBlock>
+                    <TextBlock Name ="T3" HorizontalAlignment = "Left"  Grid.Row = "1" Grid.Column = "2"></TextBlock>
+                </Grid>
+                <Button Grid.Row = "3" VerticalAlignment = "Center" HorizontalAlignment = "Center" MaxHeight ="40" MaxWidth = "350" Click ="Button_Click">Сохранить</Button>
+            </Grid>
+            <ListView Grid.Column = "0" Grid.Row = "2" Name = "Table1" HorizontalAlignment ="Stretch">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path = Number}" Width = "50">Номер</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path = Ksi}">Ksi</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path = DEc}">dEc</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Name = "Graf" Grid.Row = "0" Grid.Column = "1"/>
+    </Grid>
+</Window>

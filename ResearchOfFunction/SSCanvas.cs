@@ -13,17 +13,19 @@ using System.Globalization;
 
 namespace ResearchOfFunction
 {
+    /// <summary>
+    /// Class for visual display of the graph of singledimensional optimization
+    /// </summary>
     public class SSCanvas : Canvas
     {
-
         public SSingle sng;
 
         public string[] dimNames = new string[2];
         public double[,] dim = new double[2, 5];
         public bool drawP = false;
 
-        double N, NF;
-        double Beg;
+        double N; 
+        double Beg; 
 
         public SSCanvas(SSingle sng)
         {
@@ -37,7 +39,6 @@ namespace ResearchOfFunction
 
             dim[0, 2] = (dim[0, 1] - dim[0, 0]) / N;
         }
-
 
         protected override void OnRender(DrawingContext drawingContext)
         {
@@ -76,7 +77,6 @@ namespace ResearchOfFunction
             drawingContext.DrawText(getFormattedText(dimNames[0]), new Point(Beg + wd + 5, BegY - 10));
             drawingContext.DrawText(getFormattedText(dimNames[1]), new Point(Beg + 5, BegY - wd - 10));
 
-
             for (int i = 0; i < N; i++)
                 drawingContext.DrawLine(new Pen(Brushes.Blue, 1),
                     new Point(Beg + (i * dim[0, 2]) * dim[0, 3], CalcY(dim[0, 0] + i * dim[0, 2])),
@@ -89,7 +89,6 @@ namespace ResearchOfFunction
         {
             return ActualHeight - Beg - SingleFunc.Calc(Q) * dim[1, 3];
         }
-
 
         void drawPoisk(DrawingContext drawingContext)
         {
@@ -114,7 +113,6 @@ namespace ResearchOfFunction
         {
             return new FormattedText(str, CultureInfo.GetCultureInfo("en-us"), FlowDirection.LeftToRight, new Typeface("Verdana"), 8, Brushes.Black);
         }
-
 
         public void MouseClickN(object sender, MouseButtonEventArgs e)
         {

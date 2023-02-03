@@ -13,9 +13,11 @@ using System.Globalization;
 
 namespace ResearchOfFunction
 {
+    /// <summary>
+    /// Class for visual display of the graph of multidimensional optimization
+    /// </summary>
     public class MCanvas : Canvas
     {
-
         public Multi mlt;
 
         public string[] dimNames = new string[3];
@@ -41,7 +43,6 @@ namespace ResearchOfFunction
                 dim[i, 2] = (dim[i, 1] - dim[i, 0]) / N;
             dim[2, 2] = (dim[2, 1] - dim[2, 0]) / NF;
         }
-
 
         protected override void OnRender(DrawingContext drawingContext)
         {
@@ -106,8 +107,6 @@ namespace ResearchOfFunction
                             new Point(coordX(C2, L21), coordY(C2, L21, k)));
                 }
 
-
-
             if (drawP)
                 drawPoisk(drawingContext);
         }
@@ -145,7 +144,6 @@ namespace ResearchOfFunction
         {
             return new FormattedText(str, CultureInfo.GetCultureInfo("en-us"), FlowDirection.LeftToRight, new Typeface("Verdana"), 8, Brushes.Black);
         }
-
 
         public void MouseClickN(object sender, MouseButtonEventArgs e)
         {

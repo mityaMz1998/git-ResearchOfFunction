@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace ResearchOfFunction
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Interaction logic for для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -25,12 +25,18 @@ namespace ResearchOfFunction
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Operation with a single optimisation
+        /// </summary>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             SSingle single = new SSingle();
             single.Show();
         }
 
+        /// <summary>
+        /// Operation with a multi optimisation
+        /// </summary>
         private void Multi_Click(object sender, RoutedEventArgs e)
         {
             Multi ml = new Multi();

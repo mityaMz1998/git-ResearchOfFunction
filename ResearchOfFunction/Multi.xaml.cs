@@ -19,19 +19,18 @@ using Excell = Microsoft.Office.Interop.Excel;
 namespace ResearchOfFunction
 {
     /// <summary>
-    /// Логика взаимодействия для Multi.xaml
+    /// Interaction logic for Multi.xaml
     /// </summary>
     public partial class Multi : Window
     {
-
         MCanvas Can;
-        public double Eps;
+        public double Eps; // Permissible error in determining the minimum point
         public bool mx = true;
         bool hasResult;
         public List<StepMInfo> Lst = new List<StepMInfo>();
-        string[] namesA = { "напряжения", "сопротивления", "частоты" };
-        string[] namesRow = { "ёмкости", "индуктивности", "тока" };
-        string[] namesCol = { "нижней границы", "верхней границы", "шага" };
+        string[] namesA = { "voltage", "resistance", "frequency" };
+        string[] namesRow = { "capacitance", "inductance", "current" };
+        string[] namesCol = { "lower bound", "upper bound", "step" };
         Excell._Worksheet worksheet = null;
         
         public Multi()
